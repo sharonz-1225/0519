@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My GitHub Page</title>
-</head>
-<body>
-    <h1>Hello, World!</h1>
-    <p>This is my first GitHub Pages website.</p>
-</body>
+  </head>
+  <body>
+    <h2>点点点游戏 v1.0 🐣</h2>
+    <p>分数：<span id="score">0</span></p>
+    <p>每次点击加：<span id="clickPower">1</span></p>
+    <p>升级费用：<span id="upgradeCost">100</span></p>
+
+    <button onclick="clickButton()">点我！</button>
+    <button onclick="upgrade()">升级点数加成</button>
+
+    <script>
+      let score = 0;
+      let clickPower = 1;
+      let upgradeCost = 100;
+
+      function clickButton() {
+        score += clickPower;
+        updateDisplay();
+      }
+
+      function upgrade() {
+        if (score >= upgradeCost) {
+          score -= upgradeCost;
+          clickPower += 1;
+          upgradeCost *= 5;
+          updateDisplay();
+        } else {
+          alert("分数不够升级哦！");
+        }
+      }
+
+      function updateDisplay() {
+        document.getElementById("score").innerText = score;
+        document.getElementById("clickPower").innerText = clickPower;
+        document.getElementById("upgradeCost").innerText = upgradeCost;
+      }
+    </script>
+  </body>
 </html>
